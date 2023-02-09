@@ -2,16 +2,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking for {{competition['name']}} || GUDLFT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Booking for {{competition['name']}}</title>
 </head>
 <body>
-    <h2>{{competition['name']}}</h2>
-    Places available: {{competition['numberOfPlaces']}}
-    <form action="/purchasePlaces" method="post">
-        <input type="hidden" name="club" value="{{club['name']}}">
-        <input type="hidden" name="competition" value="{{competition['name']}}">
-        <label for="places">How many places?</label><input type="number" name="places" id=""/>
-        <button type="submit">Book</button>
-    </form>
+    <div class="container">
+        <h2 class="text-center">{{competition['name']}}</h2>
+        <p class="text-center">Places available: {{competition['numberOfPlaces']}}</p>
+        <form action="/purchasePlaces" method="post" class="form-horizontal">
+            <input type="hidden" name="club" value="{{club['name']}}">
+            <input type="hidden" name="competition" value="{{competition['name']}}">
+            <div class="form-group">
+                <label for="places" class="control-label col-sm-2">How many places?</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0" max="Points" name="places" id="places" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Book</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+    </div>
 </body>
 </html>

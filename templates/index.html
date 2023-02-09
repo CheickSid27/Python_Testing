@@ -1,16 +1,47 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUDLFT Registration</title>
+    <link rel="stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Enregistrement GUDLFT </title>
 </head>
+
 <body>
-    <h1>Welcome to the GUDLFT Registration Portal!</h1>
-    Please enter your secretary email to continue:
-    <form action="showSummary" method="post">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id=""/>
-        <button type="submit">Enter</button>
-    </form>
+    <div class="container my-5">
+        <h1 class="text-center">Bienvenue sur le portail d'inscription GUDLFT !</h1>
+        <p class="text- center">Veuillez saisir l'e-mail de votre secrétaire pour continuer :</p>
+        <form action="showSummary" method="post">
+            <div class="form-group"> <label for="email">E-mail :</label> <input type="email" name="email"
+                    class="form-control" aria-depressedby="emailHelp" /> <small id="emailHelp"
+                    class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec qui que ce soit
+                    d'autre.</small> </div> <button type="submit" class="btn btn-primary">Entrez</button>
+        </form> {% if erreur %} <div class="alert alert-danger my-3" role="alert"> Email incorrect </div> {% endif %}
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Club</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in clubs %}
+            <tr>
+                <td>{{c['name']}}</td>
+                <td>{{c['points']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        intégrité="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonyme"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/ umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/ js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonyme"></script>
 </body>
-</html>
